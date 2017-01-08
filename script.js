@@ -12,9 +12,12 @@ canvas = document.createElement("canvas");
 ctx = canvas.getContext("2d");
 
 //Default for now, eventually select from standard resolutions
-canvas.width = 840//1024;
-canvas.height = 480//768;
-canvas.style = "background: #333; margin: auto; display: block;";
+canvas.width = 1920//840//1024;
+canvas.height = 1080//480//768;
+canvas.style = "margin: auto; display: block;";
+
+ctx.fillStyle = "#333";//default background-color
+ctx.fillRect(0, 0, canvas.width, canvas.height);
 
 document.body.appendChild(canvas);
 })();
@@ -41,6 +44,10 @@ function populate(ammount){
 
 function draw(points){
   var lineToggle = document.getElementById("lineToggle").checked;
+  var bgColour = document.getElementById("bgColour").value;
+
+  ctx.fillStyle = bgColour;//default background-color
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
 
   ctx.fillStyle = document.getElementById("pointCol").value;
 
@@ -97,6 +104,12 @@ function render(){
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   draw(points);
   canvas.style = "background: " + bgColour + "; margin: auto; display: block;";
+}
+
+function save(){
+  var dataURL = canvas.toDataURL('image/png');
+
+  window.open(dataURL, "_blank");
 }
 
 //UI controls

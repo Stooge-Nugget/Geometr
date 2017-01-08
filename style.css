@@ -125,17 +125,32 @@ input:checked + .slider:before {
   transform: translateX(26px);
 }
 
-.render {
-  background-color: #0080ff;
+.block-buttons {
   color: #fff;
   display: block;
   height: 50px;
   font-size: 1em;
   font-weight: bold;
-  margin: 50px 0 0 30px;
   width: 100px;
 }
 
-.render:hover {
+.render {
   background-color: #006dda;
+  margin: 50px 0 0 30px;
+}
+
+.render:hover {
+  background-color: #0080ff;
+}
+
+.save {
+  /*background-color: #c44a3c;*/
+  background-color: #00DA5E;
+  /*margin: 50px 150px 0 0;*/
+  margin: 20px 0 0 30px;
+}
+
+.save:hover {
+  /*background-color: #db5040;*/
+  background-color: #00EC66;
 }
