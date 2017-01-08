@@ -20,6 +20,7 @@ document.body.appendChild(canvas);
 })();
 
 function populate(ammount){
+  var ammount = document.getElementById("pointCount").value;
   var points = [];
   var width = canvas.width;
   var height = canvas.height;
@@ -38,22 +39,32 @@ function populate(ammount){
   return points;
 }
 
-function draw(points, lineToggle){
-  ctx.fillStyle = "#fff";
+function draw(points){
+  var lineToggle = document.getElementById("lineToggle").checked;
+
+  ctx.fillStyle = document.getElementById("pointCol").value;
 
   for(var i = 0; i < points.length; i++){
     ctx.beginPath();
     ctx.arc(points[i][0], points[i][1], pointSize/2, 0, 2 * Math.PI);
     ctx.arc(canvas.width - points[i][0], points[i][1], pointSize/2, 0, 2 * Math.PI);//Accounts for symetry
+    //Might be better to create extra coords for symetry, instead of derive values
     ctx.fill();
     ctx.closePath();
   }
 
   if(lineToggle){
-    ctx.strokeStyle = "#fff"
+    // ctx.strokeStyle = document.getElementById("lineCol").value;
 
     for(var i = 0; i < points.length; i++){
       for(var j = 0; j < points.length; j++){
+
+        // var grd = ctx.createLinearGradient(points[i][0], points[i][1], canvas.width - points[j][0], points[j][1]);//Make into function
+        var grd = ctx.createLinearGradient(0, 0, 0, canvas.height);//Make into function
+        grd.addColorStop(0, "blue");
+        grd.addColorStop(1, "purple");
+        ctx.strokeStyle = grd;
+
         ctx.beginPath();
         ctx.moveTo(points[i][0], points[i][1]);
         ctx.lineTo(canvas.width - points[j][0], points[j][1]);//Only draws to other side...
@@ -64,18 +75,28 @@ function draw(points, lineToggle){
   }
 }
 
+// function getColour(type){
+//   var colour;
+//
+//   switch(){
+//     case "point":
+//       colour = document.getElementById("pointCol").value;
+//       break;
+//     case "line":
+//       colour = document.getElementById("lineCol").value;
+//       break;
+//     case ""
+//   }
+// }
+
 function render(){
-  var pointCount = document.getElementById("pointCount").value;
-  var lineToggle = document.getElementById("lineToggle").checked;
   var bgColour = document.getElementById("bgColour").value;
   var points;
 
-  // alert("test: " + pointCount + " " + lineToggle + " " + bgColour);
-  points = populate(pointCount);
+  points = populate();
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  draw(points, lineToggle);
+  draw(points);
   canvas.style = "background: " + bgColour + "; margin: auto; display: block;";
-
 }
 
 //UI controls
