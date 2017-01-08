@@ -1,0 +1,141 @@
+/*
+Description: CSS file for secret prototype...
+Author: Alex Genovese
+*/
+
+/* Side menu + controls */
+
+.openControls {
+  font-size: 1em;
+  font-weight: bold;
+  display: block;
+  background: none;
+  border: solid;
+  outline: none;
+}
+
+#sideMenu {
+  background-color: #f0f0f0;
+  height: 100%;
+  left: 0;
+  overflow-x: hidden;
+  padding-top: 100px;
+  position: fixed;
+  top: 0;
+  transition: 0.5s;
+  width: 0px;
+  z-index: 1;
+}
+
+#sideMenu label {
+  color: #2d2d2d;
+  display: inline-block;
+  float: none;
+  font-size: 1.5em;
+  font-family: Sans-serif;
+  padding: 0 30px 0 30px;
+  vertical-align: middle;
+}
+
+#sideMenu input {
+  background-color: #f0f0f0;
+  border: none;
+  color: #2d2d2d;
+  display: inline-block;
+  font-size: 1.5em;
+  margin-right: 20px;
+  outline: none;
+  right: 0;
+  text-align: right;
+  vertical-align: middle;
+  width: 100px;
+}
+
+#sideMenu button {
+  border: none;
+  outline: none;
+  text-decoration: none;
+  transition: 0.5s;
+}
+
+.closeButton {
+  background: none;
+  color: #999;
+  font-size: 4em;
+  padding: 0;
+  position: absolute;
+  right: 16px;
+  top: 0;
+}
+
+.controlContainer {
+  border-top: 1px solid #d5d5d5;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0 10px 0;
+  width: 400px;
+}
+
+/* Toggle switch design */
+
+#sideMenu .switch {
+  display: inline-block;
+  height: 28px;
+  margin-right: 20px;
+  padding: 0;
+  position: relative;
+  width: 58px;
+}
+
+.switch input {
+  /*display: none;*/
+  /*margin: -999px;*/
+  visibility: hidden;
+}
+
+.slider {
+  background-color: #ccc;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: 0.5s;
+}
+
+.slider:before {
+  background-color: white;
+  bottom: 4px;
+  content: "";
+  height: 20px;
+  left: 4px;
+  position: absolute;
+  transition: 0.5s;
+  width: 24px;
+}
+
+input:checked + .slider {
+  background-color: #5CBF3E;
+}
+
+input:checked + .slider:before {
+  -ms-transform: translateX(26px);
+  -webkit-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+.render {
+  background-color: #0080ff;
+  color: #fff;
+  display: block;
+  height: 50px;
+  font-size: 1em;
+  font-weight: bold;
+  margin: 50px 0 0 30px;
+  width: 100px;
+}
+
+.render:hover {
+  background-color: #006dda;
+}
