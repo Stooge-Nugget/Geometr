@@ -2,7 +2,7 @@
 
 'use strict';
 
-const pointSize = 10;
+// const pointSize = 10;
 
 var canvas;
 var ctx;
@@ -27,6 +27,7 @@ function populate(ammount){
   var points = [];
   var width = canvas.width;
   var height = canvas.height;
+  var pointSize = document.getElementById("pointSize").value;
 
   //Currently working with symetry in mind
   for(var i = 0; i < ammount; i++){
@@ -45,23 +46,41 @@ function populate(ammount){
 function draw(points){
   var lineToggle = document.getElementById("lineToggle").checked;
   var bgColour = document.getElementById("bgColour").value;
+  var pointFill = document.getElementById("pointFill").checked;
+  var pointSize = document.getElementById("pointSize").value;
 
-  ctx.fillStyle = bgColour;//default background-color
+  ctx.fillStyle = bgColour;
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
   ctx.fillStyle = document.getElementById("pointCol").value;
+  ctx.strokeStyle = document.getElementById("pointCol").value;
 
+  //Need to refine this uglyness (also decouple!)
   for(var i = 0; i < points.length; i++){
     ctx.beginPath();
     ctx.arc(points[i][0], points[i][1], pointSize/2, 0, 2 * Math.PI);
+
+    if(pointFill){
+      ctx.fill();
+    }else{
+      ctx.stroke();
+    }
+    ctx.closePath();
+
+    ctx.beginPath();
     ctx.arc(canvas.width - points[i][0], points[i][1], pointSize/2, 0, 2 * Math.PI);//Accounts for symetry
     //Might be better to create extra coords for symetry, instead of derive values
-    ctx.fill();
+    if(pointFill){
+      ctx.fill();
+    }else{
+      ctx.stroke();
+    }
     ctx.closePath();
   }
 
   if(lineToggle){
     // ctx.strokeStyle = document.getElementById("lineCol").value;
+    ctx.lineWidth = document.getElementById("lineWeight").value;
 
     for(var i = 0; i < points.length; i++){
       for(var j = 0; j < points.length; j++){
