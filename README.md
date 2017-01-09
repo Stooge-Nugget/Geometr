@@ -7,7 +7,7 @@ Secret Prototype
 * Symetry toggle
 * Random plot toggle
 * Shape of plot
-* plot/point count, size, colour
+* plot/point count, size, colour ✔
 * Line colour, gradient, thickness
 * Custom plotting
 * Background colour or gradient
