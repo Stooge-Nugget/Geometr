@@ -33,7 +33,8 @@ Author: Alex Genovese
 
 .openControls {
   background: #fff;
-  border: solid;
+  border: solid #333;
+  color: #333;
   display: block;
   font-size: 1em;
   font-weight: bold;
@@ -46,7 +47,7 @@ Author: Alex Genovese
   height: 100%;
   left: 0;
   overflow-x: hidden;
-  padding-top: 50px;
+  padding-top: 55px;
   position: fixed;
   top: 0;
   transition: 0.5s;
