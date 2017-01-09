@@ -114,6 +114,18 @@ function save(){
 
 //UI controls
 
+function openTab(evt, tabName){
+  //Consider adding active tab background
+  var controls = document.getElementById(tabName);
+  var tabControls = document.getElementsByClassName("controlTab");
+
+  for(var i = 0; i < tabControls.length; i++){
+    tabControls[i].style.display = "none";
+  }
+
+  controls.style.display = "block";
+}
+
 function openControls(){
   document.getElementById("sideMenu").style.width = "400px";
 }

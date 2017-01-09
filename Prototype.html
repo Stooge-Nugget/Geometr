@@ -6,30 +6,50 @@
 <button type="button" class="openControls" onClick="openControls()">></button>
 
 <nav id="sideMenu">
+  <ul id="tabs">
+    <li><button class="" onClick="openTab(event, 'Points')">P</button></li>
+    <li><button class="" onClick="openTab(event, 'Lines')">L</button></li>
+    <li><button class="" onClick="openTab(event, 'Shapes')">S</button></li>
+    <li><button class="" onClick="openTab(event, 'Text')">T</button></li>
+  </ul>
+
   <button type="button" class="closeButton" onClick="closeControls()">×</button>
-  <div class="controlContainer">
-    <label>Points</label>
-    <input type="text" id="pointCount" value="20">
+
+  <div id="Points" class="controlTab">
+    <div class="controlContainer">
+      <label>Points</label>
+      <input type="text" id="pointCount" value="20">
+    </div>
+    <div class="controlContainer">
+      <label>Point Colour</label>
+      <input type="text" id="pointCol" value="#ffffff">
+    </div>
+    <div class="controlContainer">
+      <label>Background</label>
+      <input type="text" id="bgColour" value="#333333">
+    </div>
   </div>
-  <div class="controlContainer">
-    <label>Point Colour</label>
-    <input type="text" id="pointCol" value="#ffffff">
+
+  <div id="Lines" class="controlTab">
+    <div class="controlContainer">
+      <label>Lines</label>
+      <label class="switch">
+        <input type="checkbox" id="lineToggle" checked="checked">
+        <div class="slider"></div>
+      </label>
+    </div>
+    <div class="controlContainer">
+      <label>Line Colour</label>
+      <input type="text" id="lineCol" value="#ffffff">
+    </div>
   </div>
-  <div class="controlContainer">
-    <label>Lines</label>
-    <label class="switch">
-      <input type="checkbox" id="lineToggle" checked="checked">
-      <div class="slider"></div>
-    </label>
+
+  <div id="Shapes" class="controlTab">
   </div>
-  <div class="controlContainer">
-    <label>Line Colour</label>
-    <input type="text" id="lineCol" value="#ffffff">
+
+  <div id="Text" class="controlTab">
   </div>
-  <div class="controlContainer">
-    <label>Background</label>
-    <input type="text" id="bgColour" value="#333333">
-  </div>
+
   <button class="block-buttons render" onClick="render()">RENDER</button>
   <button class="block-buttons save" onClick="save()">SAVE</button>
 </nav>

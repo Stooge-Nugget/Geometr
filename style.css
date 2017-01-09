@@ -3,14 +3,41 @@ Description: CSS file for secret prototype...
 Author: Alex Genovese
 */
 
+/* Tabs */
+
+#tabs {
+  background-color: #f0f0f0;
+  display: block;
+  /*height: 100%;*/
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 50px;
+  width: 50px;
+}
+
+#tabs li {
+  /*float: left;*/
+  /*padding: 0;*/
+}
+
+#tabs button {
+  background-color: #f0f0f0;
+  font-weight: bold;
+  height: 50px;
+  width: 50px;
+}
+
 /* Side menu + controls */
 
 .openControls {
+  background: #fff;
+  border: solid;
+  display: block;
   font-size: 1em;
   font-weight: bold;
-  display: block;
-  background: none;
-  border: solid;
+  position: absolute;
   outline: none;
 }
 
@@ -19,7 +46,7 @@ Author: Alex Genovese
   height: 100%;
   left: 0;
   overflow-x: hidden;
-  padding-top: 100px;
+  padding-top: 50px;
   position: fixed;
   top: 0;
   transition: 0.5s;
@@ -31,7 +58,7 @@ Author: Alex Genovese
   color: #2d2d2d;
   display: inline-block;
   float: none;
-  font-size: 1.5em;
+  font-size: 1em;
   font-family: Sans-serif;
   padding: 0 30px 0 30px;
   vertical-align: middle;
@@ -42,8 +69,8 @@ Author: Alex Genovese
   border: none;
   color: #2d2d2d;
   display: inline-block;
-  font-size: 1.5em;
-  margin-right: 20px;
+  font-size: 1em;
+  margin-right: 70px;
   outline: none;
   right: 0;
   text-align: right;
@@ -61,11 +88,22 @@ Author: Alex Genovese
 .closeButton {
   background: none;
   color: #999;
-  font-size: 4em;
+  font-size: 2em;
+  height: 50px;
   padding: 0;
   position: absolute;
-  right: 16px;
   top: 0;
+  width: 50px;
+}
+
+.controlTab {
+  display: none;
+  margin-left: 50px;
+}
+
+/* Default open tab */
+#Points {
+  display: block;
 }
 
 .controlContainer {
@@ -81,7 +119,7 @@ Author: Alex Genovese
 #sideMenu .switch {
   display: inline-block;
   height: 28px;
-  margin-right: 20px;
+  margin-right: 70px;
   padding: 0;
   position: relative;
   width: 58px;
@@ -136,7 +174,7 @@ input:checked + .slider:before {
 
 .render {
   background-color: #006dda;
-  margin: 50px 0 0 30px;
+  margin: 50px 0 0 80px;
 }
 
 .render:hover {
@@ -147,7 +185,7 @@ input:checked + .slider:before {
   /*background-color: #c44a3c;*/
   background-color: #00DA5E;
   /*margin: 50px 150px 0 0;*/
-  margin: 20px 0 0 30px;
+  margin: 20px 0 0 80px;
 }
 
 .save:hover {
